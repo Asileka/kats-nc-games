@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { getReviews } from "../functions/api";
-import Categories from "./Categories";
 
-const GamesList = () => {
+const CategoryPage = () => {
   const [gamesList, setgamesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
