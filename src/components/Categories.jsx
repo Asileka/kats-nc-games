@@ -23,7 +23,7 @@ const Categories = () => {
             {Categories.map((category) => {
               return (
                 <div className="grid-categories" key={category.category_id}>
-                  <a href="http://localhost:3000/:category">
+                  <a href={`/games/${category.slug}`}>
                     <dt>
                       <b>{category.slug}</b>
                     </dt>
