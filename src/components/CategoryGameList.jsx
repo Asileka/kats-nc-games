@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
-import { getReviews } from "../functions/api";
+import { getCategoryReviews } from "../functions/api";
 import Categories from "./Categories";
 import { useParams } from "react-router-dom";
 
-const GamesList = () => {
+const CategoryGameList = () => {
   const { category } = useParams();
   const [gamesList, setgamesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
-    getReviews().then((res) => {
+    getCategoryReviews(category).then((res) => {
       setgamesList(res);
       setIsLoading(false);
     });
@@ -48,4 +48,4 @@ const GamesList = () => {
   );
 };
 
-export default GamesList;
+export default CategoryGameList;

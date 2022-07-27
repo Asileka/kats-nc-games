@@ -13,3 +13,12 @@ export function getCategories() {
       return res.data.categories;
     });
 }
+export function getCategoryReviews(category) {
+  return axios
+    .get(
+      `https://kats-nc-games.herokuapp.com/api/reviews/?category=${category}`
+    )
+    .then((res) => {
+      return res.data.reviews;
+    });
+}
