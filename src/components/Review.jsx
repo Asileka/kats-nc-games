@@ -12,30 +12,31 @@ const Review = () => {
     setIsLoading(true);
     getReviewByID(review_id).then((res) => {
       setReview(res);
-      console.log(res);
       setIsLoading(false);
     });
   }, []);
 
   return (
-    <div>
+    <div className="Review">
       {isLoading ? (
         <p>Loading</p>
       ) : (
-        <ul className="Review">
+        <ul className="review-list">
           <li className="review-page" key={review.review_id}>
-            <img className="image-review" src={review.review.review_img_url} />
-            <div>
+            <img className="image-review" src={review.review_img_url} />
+            <div className="review-2">
               <p>
                 <b>{review.title}</b>
               </p>
               <p>Category: {review.category} </p>
               <p>Designer: {review.designer} </p>
               <p>Review author: {review.owner}</p>
-            </div>
-            <div>
               <p>Votes: {review.votes}</p>
               <p>Comments: {review.comment_count}</p>
+            </div>
+
+            <div>
+              <p>{review.review_body}</p>
             </div>
           </li>
         </ul>

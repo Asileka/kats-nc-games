@@ -7,6 +7,11 @@
   height: 200px;
   grid-column: 1;
 }
+.image-review {
+  width: 400px;
+  height: 400px;
+  grid-column: 1;
+}
 .grid-review {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -16,9 +21,28 @@
 .GameList {
   list-style-type: none;
 }
+
 .grid-categories {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
   grid-auto-rows: minmax(50px, auto);
+}
+.Review {
+  padding-left: 0px;
+}
+.review-page {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.review-list {
+  list-style-type: none;
+}
+.review-2 {
+  grid-column: 2;
+}
+.review-3 {
+  grid-column: 3;
 }
