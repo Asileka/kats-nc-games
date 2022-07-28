@@ -1,7 +1,11 @@
 import axios from "axios";
-export function getReviews() {
+export function getReviews(category) {
   return axios
-    .get(`https://kats-nc-games.herokuapp.com/api/reviews/`)
+    .get(`https://kats-nc-games.herokuapp.com/api/reviews/`, {
+      params: {
+        category: category,
+      },
+    })
     .then((res) => {
       return res.data.reviews;
     });

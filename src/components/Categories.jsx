@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { getCategories } from "../functions/api";
 
 const Categories = () => {
-  const [Categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
@@ -20,7 +20,7 @@ const Categories = () => {
       ) : (
         <div className="Categories">
           <dl>
-            {Categories.map((category) => {
+            {categories.map((category) => {
               return (
                 <div className="grid-categories" key={category.category_id}>
                   <a href={`/games/${category.slug}`}>
