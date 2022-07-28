@@ -17,7 +17,7 @@ const Review = () => {
   }, []);
   const handleUpvoteClick = () => {
     setVotes((votes) => votes + 1);
-    upVote(review_id, votes);
+    upVote(review_id);
   };
   return (
     <div className="Review">
@@ -34,7 +34,7 @@ const Review = () => {
               <p>Category: {review.category} </p>
               <p>Designer: {review.designer} </p>
               <p>Review author: {review.owner}</p>
-              <p>Votes: {review.votes}</p>
+              <p>Votes: {votes}</p>
               <p>Comments: {review.comment_count}</p>
             </div>
           </li>

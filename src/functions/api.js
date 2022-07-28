@@ -24,10 +24,10 @@ export function getCategories() {
       return res.data.categories;
     });
 }
-export function upVote(review_id, votesNumber) {
+export function upVote(review_id) {
   return axios
     .patch(`https://kats-nc-games.herokuapp.com/api/reviews/${review_id}`, {
-      votes: votesNumber,
+      inc_votes: 1,
     })
     .catch((err) => {
       console.log(err);
