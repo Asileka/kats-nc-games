@@ -16,3 +16,9 @@
 .GameList {
   list-style-type: none;
 }
+.grid-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  grid-auto-rows: minmax(50px, auto);
+}

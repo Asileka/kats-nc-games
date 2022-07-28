@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useContext } from "react";
 import { getReviews } from "../functions/api";
+import Categories from "./Categories";
+import { useParams } from "react-router-dom";
 
 const GamesList = () => {
+  const { category } = useParams();
   const [gamesList, setgamesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
-    getReviews().then((res) => {
+    getReviews(category).then((res) => {
       setgamesList(res);
       setIsLoading(false);
     });
@@ -16,30 +18,31 @@ const GamesList = () => {
 
   return (
     <div>
+      <Categories />
       {isLoading ? (
         <p>Loading</p>
       ) : (
-        <div className="GameList">
+        <ul className="GameList">
           {gamesList.map((review) => {
             return (
-              <div className="grid-review" key={review.review_id}>
+              <li className="grid-review" key={review.review_id}>
                 <img className="images" src={review.review_img_url} />
-                <li>
-                  <ul>
+                <div>
+                  <p>
                     <b>{review.title}</b>
-                  </ul>
-                  <ul>Category: {review.category} </ul>
-                  <ul>Designer: {review.designer} </ul>
-                  <ul>Review author: {review.owner}</ul>
-                </li>
-                <li>
-                  <ul>Votes: {review.votes}</ul>
-                  <ul>Comments: {review.comment_count}</ul>
-                </li>
-              </div>
+                  </p>
+                  <p>Category: {review.category} </p>
+                  <p>Designer: {review.designer} </p>
+                  <p>Review author: {review.owner}</p>
+                </div>
+                <div>
+                  <p>Votes: {review.votes}</p>
+                  <p>Comments: {review.comment_count}</p>
+                </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
     </div>
   );
