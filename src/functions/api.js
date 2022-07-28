@@ -33,3 +33,12 @@ export function upVote(review_id) {
       console.log(err);
     });
 }
+export function getComments(review_id) {
+  return axios
+    .get(
+      `https://kats-nc-games.herokuapp.com/api/reviews/${review_id}/comments`
+    )
+    .then((res) => {
+      return res.data.review;
+    });
+}
