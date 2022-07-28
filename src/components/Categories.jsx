@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { getCategories } from "../functions/api";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -23,11 +24,9 @@ const Categories = () => {
             {categories.map((category) => {
               return (
                 <div className="grid-categories" key={category.category_id}>
-                  <a href={`/games/${category.slug}`}>
-                    <dt>
-                      <b>{category.slug}</b>
-                    </dt>
-                  </a>
+                  <Link className="Link" to={`/games/${category.slug}`}>
+                    <b>{category.slug}</b>
+                  </Link>
                   <dd>{category.description}</dd>
                 </div>
               );

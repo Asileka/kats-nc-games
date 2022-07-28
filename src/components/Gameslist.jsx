@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useContext } from "react";
 import { getReviews } from "../functions/api";
 import Categories from "./Categories";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const GamesList = () => {
   const { category } = useParams();
@@ -14,7 +13,7 @@ const GamesList = () => {
       setgamesList(res);
       setIsLoading(false);
     });
-  }, []);
+  }, [category]);
 
   return (
     <div>
@@ -28,9 +27,9 @@ const GamesList = () => {
               <li className="grid-review" key={review.review_id}>
                 <img className="images" src={review.review_img_url} />
                 <div>
-                  <p>
+                  <Link className="Link" to={`/reviews/${review.review_id}`}>
                     <b>{review.title}</b>
-                  </p>
+                  </Link>
                   <p>Category: {review.category} </p>
                   <p>Designer: {review.designer} </p>
                   <p>Review author: {review.owner}</p>

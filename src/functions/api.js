@@ -10,11 +10,11 @@ export function getReviews(categoryName) {
       return res.data.reviews;
     });
 }
-export function getReviewByID(ID) {
+export function getReviewByID(review_id) {
   return axios
-    .get(`https://kats-nc-games.herokuapp.com/api/reviews/${ID}`)
+    .get(`https://kats-nc-games.herokuapp.com/api/reviews/${review_id}`)
     .then((res) => {
-      return res.data.reviews;
+      return res.data.review;
     });
 }
 export function getCategories() {
@@ -22,5 +22,14 @@ export function getCategories() {
     .get(`https://kats-nc-games.herokuapp.com/api/categories`)
     .then((res) => {
       return res.data.categories;
+    });
+}
+export function upVote(review_id, votesNumber) {
+  return axios
+    .patch(`https://kats-nc-games.herokuapp.com/api/reviews/${review_id}`, {
+      votes: votesNumber,
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
