@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useContext } from "react";
-import { getReviewByID } from "../functions/api";
-import Categories from "./Categories";
+import { getReviewByID, upVote } from "../functions/api";
 import { useParams } from "react-router-dom";
 
 const Review = () => {
   const { review_id } = useParams();
   const [review, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [votes, setVotes] = useState(0);
   useEffect(() => {
     setIsLoading(true);
-    getReviewByID(review_id).then((res) => {
-      setReview(res);
+    getReviewByID(review_id).then((review) => {
+      setReview(review);
+      setVotes(review.votes);
       setIsLoading(false);
     });
   }, []);
-
+  const handleUpvoteClick = () => {
+    setVotes((votes) => votes + 1);
+    upVote(review_id, votes);
+  };
   return (
     <div className="Review">
       {isLoading ? (
@@ -34,11 +37,14 @@ const Review = () => {
               <p>Votes: {review.votes}</p>
               <p>Comments: {review.comment_count}</p>
             </div>
-
-            <div>
-              <p>{review.review_body}</p>
-            </div>
           </li>
+          <div>
+            <p>{review.review_body}</p>
+          </div>
+          <div className="votes">
+            <p>Votes: {votes}</p>
+            <button onClick={handleUpvoteClick}>+</button>
+          </div>
         </ul>
       )}
     </div>

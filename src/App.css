@@ -46,3 +46,8 @@
 .review-3 {
   grid-column: 3;
 }
+.votes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}

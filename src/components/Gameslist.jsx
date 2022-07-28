@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useContext } from "react";
 import { getReviews } from "../functions/api";
 import Categories from "./Categories";
 import { useParams, Link } from "react-router-dom";
