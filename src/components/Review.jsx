@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getReviewByID, upVote } from "../functions/api";
 import { useParams } from "react-router-dom";
+import Comments from "./Comments";
 
 const Review = () => {
   const { review_id } = useParams();
@@ -24,28 +25,33 @@ const Review = () => {
       {isLoading ? (
         <p>Loading</p>
       ) : (
-        <ul className="review-list">
-          <li className="review-page" key={review.review_id}>
+        <div className="review-list">
+          <div className="review-page" key={review.review_id}>
             <img className="image-review" src={review.review_img_url} />
             <div className="review-2">
-              <p>
+              <h3 className="review-title">
                 <b>{review.title}</b>
-              </p>
+              </h3>
               <p>Category: {review.category} </p>
               <p>Designer: {review.designer} </p>
               <p>Review author: {review.owner}</p>
               <p>Votes: {votes}</p>
               <p>Comments: {review.comment_count}</p>
             </div>
-          </li>
-          <div>
+          </div>
+          <div className="review-body">
             <p>{review.review_body}</p>
           </div>
           <div className="votes">
             <p>Votes: {votes}</p>
-            <button onClick={handleUpvoteClick}>+</button>
+            <button onClick={handleUpvoteClick} className="buttonVote">
+              +
+            </button>
           </div>
-        </ul>
+          <div>
+            <Comments />
+          </div>
+        </div>
       )}
     </div>
   );

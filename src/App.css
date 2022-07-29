@@ -1,15 +1,41 @@
 .App {
   text-align: center;
+  background-color: rgb(255, 246, 233);
+  font-family: vista-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-
+.Navigation a:link {
+  color: antiquewhite;
+}
+.Navigation a:visited {
+  color: antiquewhite;
+}
+.Navigation a:hover {
+  color: white;
+}
+a:link {
+  color: rgb(123, 37, 37);
+}
+a:visited {
+  color: rgb(123, 37, 37);
+}
+.header {
+  font-family: freight-neo-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  color: rgb(216, 72, 72);
+}
 .images {
   width: 200px;
   height: 200px;
   grid-column: 1;
 }
 .image-review {
-  width: 400px;
-  height: 400px;
+  margin-left: 8em;
+  width: 350px;
+  height: 350px;
   grid-column: 1;
 }
 .grid-review {
@@ -42,6 +68,9 @@
 }
 .review-2 {
   grid-column: 2;
+  font-size: larger;
+  background-color: rgb(216, 110, 72);
+  color: rgb(251, 230, 230);
 }
 .review-3 {
   grid-column: 3;
@@ -50,4 +79,42 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+}
+.comments {
+  text-align: left;
+}
+.grid-comments {
+  border: solid;
+}
+.buttonVote {
+  width: 30px;
+  height: 30px;
+}
+.Link {
+  padding: 0 2.5em;
+  font-size: 48;
+}
+.Navigation {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-bottom: 3em;
+  text-align: center;
+  background-color: rgb(216, 110, 72);
+}
+.review-body {
+  text-align: left;
+  padding: 2em 5em;
+  margin-top: 2em;
+  background-color: rgb(253, 251, 248);
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  border-color: rgb(108 51 31);
+}
+.review-title {
+  color: antiquewhite;
+}
+.grid-comments {
+  background-color: rgb(253, 251, 248);
+  padding: 1em 1em;
 }
