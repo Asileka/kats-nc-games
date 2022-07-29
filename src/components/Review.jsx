@@ -25,21 +25,21 @@ const Review = () => {
       {isLoading ? (
         <p>Loading</p>
       ) : (
-        <ul className="review-list">
-          <li className="review-page" key={review.review_id}>
+        <div className="review-list">
+          <div className="review-page" key={review.review_id}>
             <img className="image-review" src={review.review_img_url} />
             <div className="review-2">
-              <p>
+              <h3 className="review-title">
                 <b>{review.title}</b>
-              </p>
+              </h3>
               <p>Category: {review.category} </p>
               <p>Designer: {review.designer} </p>
               <p>Review author: {review.owner}</p>
               <p>Votes: {votes}</p>
               <p>Comments: {review.comment_count}</p>
             </div>
-          </li>
-          <div>
+          </div>
+          <div className="review-body">
             <p>{review.review_body}</p>
           </div>
           <div className="votes">
@@ -48,10 +48,10 @@ const Review = () => {
               +
             </button>
           </div>
-          <li>
+          <div>
             <Comments />
-          </li>
-        </ul>
+          </div>
+        </div>
       )}
     </div>
   );

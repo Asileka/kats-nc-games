@@ -11,7 +11,6 @@ const Comments = () => {
     setIsLoading(true);
     getComments(review_id).then((comments) => {
       setComments(comments);
-      console.log(comments);
       setIsLoading(false);
     });
   }, []);
@@ -25,23 +24,27 @@ const Comments = () => {
           <li>
             <h4>Comments</h4>
           </li>
-          {comments.map((comments) => {
-            return (
-              <li className="grid-comments" key={comments.comments_id}>
-                <div>
-                  <p>
-                    <u>Author:</u> <b>{comments.author}</b>{" "}
-                  </p>
-                  <p>
-                    <u>Date posted:</u> {comments.created_at}{" "}
-                  </p>
-                </div>
-                <div>
-                  <p>{comments.body}</p>
-                </div>
-              </li>
-            );
-          })}
+          {comments.length === 0 ? (
+            <p>No Comments Yet</p>
+          ) : (
+            comments.map((comments) => {
+              return (
+                <li className="grid-comments" key={comments.comments_id}>
+                  <div>
+                    <p>
+                      <u>Author:</u> <b>{comments.author}</b>{" "}
+                    </p>
+                    <p>
+                      <u>Date posted:</u> {comments.created_at.split("T")[0]}{" "}
+                    </p>
+                  </div>
+                  <div className="comment-body">
+                    <p>{comments.body}</p>
+                  </div>
+                </li>
+              );
+            })
+          )}
         </ul>
       )}
     </div>

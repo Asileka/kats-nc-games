@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import GamesList from "./components/Gameslist";
 import Review from "./components/Review";
+import LatestReviews from "./components/LatestReviews";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <Navigation />
         <Routes>
+          <Route path="/" element={<LatestReviews />} />
           <Route path="/games" element={<GamesList />} />
           <Route path="/games/:category" element={<GamesList />} />
           <Route path="/reviews/:review_id" element={<Review />} />

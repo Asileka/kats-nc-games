@@ -42,3 +42,16 @@ export function getComments(review_id) {
       return res.data.comments;
     });
 }
+export function sendComment(review_id, input_username, input_body) {
+  return axios
+    .post(`https://kats-nc-games.herokuapp.com/api/reviews/${review_id}`, {
+      username: input_username,
+      body: input_body,
+    })
+    .then((res) => {
+      return res.data.comment;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
