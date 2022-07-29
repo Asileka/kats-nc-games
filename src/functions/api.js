@@ -39,6 +39,6 @@ export function getComments(review_id) {
       `https://kats-nc-games.herokuapp.com/api/reviews/${review_id}/comments`
     )
     .then((res) => {
-      return res.data.review;
+      return res.data.comments;
     });
 }

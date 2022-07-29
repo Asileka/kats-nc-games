@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getReviewByID, upVote } from "../functions/api";
 import { useParams } from "react-router-dom";
+import Comments from "./Comments";
 
 const Review = () => {
   const { review_id } = useParams();
@@ -43,8 +44,13 @@ const Review = () => {
           </div>
           <div className="votes">
             <p>Votes: {votes}</p>
-            <button onClick={handleUpvoteClick}>+</button>
+            <button onClick={handleUpvoteClick} className="buttonVote">
+              +
+            </button>
           </div>
+          <li>
+            <Comments />
+          </li>
         </ul>
       )}
     </div>

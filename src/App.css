@@ -51,3 +51,13 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
+.comments {
+  text-align: left;
+}
+.grid-comments {
+  border: solid;
+}
+.buttonVote {
+  width: 30px;
+  height: 30px;
+}
